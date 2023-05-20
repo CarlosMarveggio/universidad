@@ -23,14 +23,14 @@ public class Universidad {
            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/universidad","root", "");
        
            //Agregar una materia
-           String sql ="insert into materia (nombre, año, estado) values ('Laboratorio 2', 2, true)";
+           /*String sql ="insert into materia (nombre, año, estado) values ('Laboratorio 2', 2, true)";
            
            PreparedStatement ps = conn.prepareStatement(sql);
            int filas = ps.executeUpdate();
            
            if (filas > 0){
                JOptionPane.showMessageDialog(null, "Materia agregada con éxito");
-           }
+           }*/
            
            
        }catch (ClassNotFoundException ex){
