@@ -9,39 +9,39 @@ import java.time.LocalDate;
  * @author SE31452
  */
 public class Alumno {
-    private int id_alumno;
+    private int idAlumno;
     private int dni;
     private String apellido;
     private String nombre;
-    private LocalDate fecha_nacimiento;
+    private LocalDate fechaNacimiento;
     private boolean estado;
 
     public Alumno() {
     }
 
-    public Alumno(int dni, String apellido, String nombre, LocalDate fecha_nacimiento, boolean estado) {
+    public Alumno(int dni, String apellido, String nombre, LocalDate fechaNacimiento, boolean estado) {
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.fecha_nacimiento = fecha_nacimiento;
+        this.fechaNacimiento = fechaNacimiento;
         this.estado = estado;
     }
 
-    public Alumno(int id_alumno, int dni, String apellido, String nombre, LocalDate fecha_nacimiento, boolean estado) {
-        this.id_alumno = id_alumno;
+    public Alumno(int id_alumno, int dni, String apellido, String nombre, LocalDate fechaNacimiento, boolean estado) {
+        this.idAlumno = id_alumno;
         this.dni = dni;
         this.apellido = apellido;
         this.nombre = nombre;
-        this.fecha_nacimiento = fecha_nacimiento;
+        this.fechaNacimiento = fechaNacimiento;
         this.estado = estado;
     }
 
-    public int getId_alumno() {
-        return id_alumno;
+    public int getIdAlumno() {
+        return idAlumno;
     }
 
-    public void setId_alumno(int id_alumno) {
-        this.id_alumno = id_alumno;
+    public void setIdAlumno(int idAlumno) {
+        this.idAlumno = idAlumno;
     }
 
     public int getDni() {
@@ -68,12 +68,12 @@ public class Alumno {
         this.nombre = nombre;
     }
 
-    public LocalDate getFecha_nacimiento() {
-        return fecha_nacimiento;
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public void setFecha_nacimiento(LocalDate fecha_nacimiento) {
-        this.fecha_nacimiento = fecha_nacimiento;
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     public boolean isEstado() {

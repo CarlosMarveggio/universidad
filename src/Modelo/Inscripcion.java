@@ -7,7 +7,7 @@ package Modelo;
  * @author SE31452
  */
 public class Inscripcion {
-    private int id_inscripcion;
+    private int idInscripcion;
     private Alumno alumno;
     private Materia materia;
     private double nota;
@@ -21,8 +21,8 @@ public class Inscripcion {
         this.nota = nota;
     }
 
-    public Inscripcion(int id_inscripcion, Alumno alumno, Materia materia, double nota) {
-        this.id_inscripcion = id_inscripcion;
+    public Inscripcion(int idInscripcion, Alumno alumno, Materia materia, double nota) {
+        this.idInscripcion = idInscripcion;
         this.alumno = alumno;
         this.materia = materia;
         this.nota = nota;

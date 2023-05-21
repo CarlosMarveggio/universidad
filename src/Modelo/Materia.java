@@ -7,7 +7,7 @@ package Modelo;
  * @author SE31452
  */
 public class Materia {
-    private int id_materia;
+    private int idMateria;
     private String nombre;
     private int anio;
     private boolean estado;
@@ -21,19 +21,19 @@ public class Materia {
         this.estado = estado;
     }
 
-    public Materia(int id_materia, String nombre, int anio, boolean estado) {
-        this.id_materia = id_materia;
+    public Materia(int idMateria, String nombre, int anio, boolean estado) {
+        this.idMateria = idMateria;
         this.nombre = nombre;
         this.anio = anio;
         this.estado = estado;
     }
 
-    public int getId_materia() {
-        return id_materia;
+    public int getIdMateria() {
+        return idMateria;
     }
 
-    public void setId_materia(int id_materia) {
-        this.id_materia = id_materia;
+    public void setIdMateria(int id_materia) {
+        this.idMateria = id_materia;
     }
 
     public String getNombre() {
