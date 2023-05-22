@@ -13,20 +13,17 @@ import javax.swing.JOptionPane;
 public class Conexion {
   
     private static final String URL="jdbc:mysql://localhost/";
-    private static final String DB="universidad";
+    private static final String DB="universidadg10";
     private static final String USUARIO="root";
     private static String PASSWORD="";
 
     private static Connection connection;
    
-    
     //Metodo constructor
    
     private Conexion(){}
     
-    
 public static Connection getConexion() {
-        
        
         if (connection == null) {
             

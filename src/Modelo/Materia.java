@@ -1,11 +1,6 @@
 
-
 package Modelo;
 
-/**
- *
- * @author SE31452
- */
 public class Materia {
     private int idMateria;
     private String nombre;
@@ -59,8 +54,10 @@ public class Materia {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Materia{" + "idMateria=" + idMateria + ", nombre=" + nombre + ", anio=" + anio + ", estado=" + estado + '}';
+    }
     
 }
