@@ -29,11 +29,11 @@ public class Universidad {
         //   Alumnos
         /**************************************************************************************************/
 
-        /*
-        Alumno alumno = new Alumno(38497593, "Arjona", "Ricardios", LocalDate.parse("1888-05-06"), true);
-        AlumnoData ad = new AlumnoData();
+      
+      //  Alumno alumno = new Alumno(96332514, "Fort  ", "Ricardo", LocalDate.parse("1999-02-12"), true);
+     /*     AlumnoData ad = new AlumnoData();
         // Agregar alumno
-        ad.guardarAlumno(alumno);
+       ad.guardarAlumno(alumno);
         // Buscar alumno
         System.out.println(ad.buscarAlumno(4));
         System.out.println(ad.buscarAlumnoDni(12345678));
@@ -42,8 +42,10 @@ public class Universidad {
         for (Alumno alum : alumnos) {
             System.out.println(alum);
         }
+        
         // Modificar alumnos
-        ad.modificarAlumno(new Alumno(4, 3445612, "Maradona", "El Diegote", LocalDate.parse("1888-05-06"), true));
+       ad.modificarAlumno(new Alumno(4, 66666666, "Maradona", "El Diegote", LocalDate.parse("1888-05-06"), true));
+        
         // Eliminar y activar alumno
         ad.eliminarAlumno(5);
         ad.activarAlumno(5);
@@ -53,13 +55,13 @@ public class Universidad {
         //   Materias
         /**************************************************************************************************/
 
-        /*
-        Materia materia = new Materia("Astrología", 5, true);
+        /**/
+        Materia materia = new Materia("Futurologia", 3, true);
         MateriaData md = new MateriaData();
         // Agregar materia
-        md.guardarMateria(materia);
+/*        md.guardarMateria(materia);
         // Buscar materia
-        System.out.println(md.buscarMateria(7));
+        System.out.println(md.buscarMateria(9));
         System.out.println(md.buscarMateriaNombre("EDA"));
         // Listar materias
         List<Materia> materias = md.listarMaterias();
@@ -67,11 +69,11 @@ public class Universidad {
             System.out.println(mat);
         }
         // Modificar materias
-        md.modificarMateria(new Materia(1, "Matemagicas 1", 3, true));
+        md.modificarMateria(new Materia(1, "Matematicas 1", 1, true));
         // Eliminar y activar materia
         md.eliminarMateria(7);
-        md.activarMateria(7);
-        */
+*/     //md.activarMateria(7);
+        /**/
         
         /**************************************************************************************************/
         //   Inscripciones
@@ -101,6 +103,20 @@ public class Universidad {
         // Eliminar inscripcion
         idt.eliminarInscripcion(7);
         */
+        
+        
+        // Buscar materias no inscriptas
+       
+       // Alumno alumno = new Alumno(5, 38497593, "Arjona", "Ricardios", LocalDate.parse("1888-05-06"), true);
+        InscripcionData idt = new InscripcionData();
+       // System.out.println(idt.buscarInscripcionNoCursadas(alumno));
+       
+        
+        List<Inscripcion> inscripciones = idt.buscarTodasInscripciones();
+        
+        for (Inscripcion ins : inscripciones) {
+            System.out.println(ins);
+        }
     }
 
 }
