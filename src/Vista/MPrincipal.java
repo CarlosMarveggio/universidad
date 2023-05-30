@@ -110,6 +110,11 @@ public class MPrincipal extends javax.swing.JFrame {
         mnuConsulta.setText("Consultas");
 
         mnuFormConsulta.setText("Consultar alumnos por materia");
+        mnuFormConsulta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuFormConsultaActionPerformed(evt);
+            }
+        });
         mnuConsulta.add(mnuFormConsulta);
 
         jMenuBar1.add(mnuConsulta);
@@ -149,6 +154,16 @@ public class MPrincipal extends javax.swing.JFrame {
         mnuEscritorio.add(formM);
         mnuEscritorio.moveToFront(formM);
     }//GEN-LAST:event_mnuFormMateriaActionPerformed
+
+    private void mnuFormConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFormConsultaActionPerformed
+        // TODO add your handling code here:
+        mnuEscritorio.removeAll();
+        mnuEscritorio.repaint();
+        AlumnosMaterias alumM = new AlumnosMaterias();
+        alumM.setVisible(true);
+        mnuEscritorio.add(alumM);
+        mnuEscritorio.moveToFront(alumM);
+    }//GEN-LAST:event_mnuFormConsultaActionPerformed
 
     /**
      * @param args the command line arguments
