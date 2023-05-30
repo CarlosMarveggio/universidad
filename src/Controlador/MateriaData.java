@@ -45,7 +45,7 @@ public class MateriaData {
     
     public Materia buscarMateria(int id) {
         Materia materia = null;
-        String sql = "SELECT nombre, año, estado FROM materia WHERE idMateria=? AND estado=1";
+        String sql = "SELECT nombre, año, estado FROM materia WHERE idMateria=?";
         PreparedStatement ps = null;
         try {
             ps = con.prepareStatement(sql);
@@ -57,7 +57,7 @@ public class MateriaData {
                 materia.setIdMateria(id); //tambien se puede poner getInt(num de columna)
                 materia.setNombre(rs.getString("nombre"));
                 materia.setAnio(rs.getInt("año"));
-                materia.setEstado(true);
+                materia.setEstado(rs.getBoolean("estado"));
 
             } else {
                 JOptionPane.showMessageDialog(null, "La materia no existe");

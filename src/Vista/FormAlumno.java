@@ -24,9 +24,7 @@ public class FormAlumno extends javax.swing.JInternalFrame {
                 
     public FormAlumno() {
         initComponents();
-        
         alumnoData = new AlumnoData();
-        
     }
 
     /**
