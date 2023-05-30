@@ -56,6 +56,8 @@ public class FormAlumno extends javax.swing.JInternalFrame {
         lblAlumnoId = new javax.swing.JLabel();
         txtAlumnoId = new javax.swing.JTextField();
         lblAlumnoEstado = new javax.swing.JLabel();
+        btnAlumnoBuscarDni = new javax.swing.JButton();
+        btnAlumnoActivar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -136,6 +138,22 @@ public class FormAlumno extends javax.swing.JInternalFrame {
         lblAlumnoEstado.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblAlumnoEstado.setText("                       ");
 
+        btnAlumnoBuscarDni.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnAlumnoBuscarDni.setText("Buscar por DNI");
+        btnAlumnoBuscarDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlumnoBuscarDniActionPerformed(evt);
+            }
+        });
+
+        btnAlumnoActivar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        btnAlumnoActivar.setText("Activar");
+        btnAlumnoActivar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlumnoActivarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -174,18 +192,20 @@ public class FormAlumno extends javax.swing.JInternalFrame {
                                         .addComponent(lblAlumnoActivo))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(lblAlumnoEstado)
-                                        .addComponent(txtAlumnoFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtAlumnoFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnAlumnoActivar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(44, 44, 44)
-                                .addComponent(btnAlumnoBuscarId))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnAlumnoBuscarId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAlumnoBuscarDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAlumnoActualizar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnAlumnoGuardar)
                                 .addGap(46, 46, 46)
                                 .addComponent(btnAlumnoBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(btnAlumnoActualizar)
-                                .addGap(44, 44, 44)
+                                .addGap(190, 190, 190)
                                 .addComponent(btnAlumnoLimpiar)))))
-                .addContainerGap(60, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,15 +220,17 @@ public class FormAlumno extends javax.swing.JInternalFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAlumnoDni)
-                    .addComponent(txtAlumnoDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAlumnoDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlumnoBuscarDni))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAlumnoApellido)
                     .addComponent(txtAlumnoApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAlumnoNombre)
-                    .addComponent(txtAlumnoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtAlumnoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAlumnoActualizar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblAlumnoFecha)
@@ -221,9 +243,9 @@ public class FormAlumno extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAlumnoGuardar)
                     .addComponent(btnAlumnoBorrar)
-                    .addComponent(btnAlumnoActualizar)
-                    .addComponent(btnAlumnoLimpiar))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(btnAlumnoLimpiar)
+                    .addComponent(btnAlumnoActivar))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -267,6 +289,7 @@ public class FormAlumno extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         int id = Integer.parseInt(txtAlumnoId.getText());
         alumnoData.eliminarAlumno(id);
+        lblAlumnoEstado.setText("Inactivo");
     }//GEN-LAST:event_btnAlumnoBorrarActionPerformed
 
     private void btnAlumnoLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlumnoLimpiarActionPerformed
@@ -297,10 +320,37 @@ public class FormAlumno extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_btnAlumnoBuscarIdActionPerformed
 
+    private void btnAlumnoBuscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlumnoBuscarDniActionPerformed
+        // TODO add your handling code here:
+        int dni = Integer.parseInt(txtAlumnoDni.getText());
+        Alumno alumno = alumnoData.buscarAlumnoDni(dni);
+        if(alumno!=null){
+            txtAlumnoId.setText(alumno.getIdAlumno()+"");
+            txtAlumnoDni.setText(alumno.getDni()+"");
+            txtAlumnoApellido.setText(alumno.getApellido());
+            txtAlumnoNombre.setText(alumno.getNombre());
+            txtAlumnoFecha.setText(alumno.getFechaNacimiento().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+            if (alumno.isEstado()==true){
+                lblAlumnoEstado.setText("Activo");
+            }else if (alumno.isEstado()==false){
+                lblAlumnoEstado.setText("Inactivo");
+            }
+        }        
+    }//GEN-LAST:event_btnAlumnoBuscarDniActionPerformed
+
+    private void btnAlumnoActivarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAlumnoActivarActionPerformed
+        // TODO add your handling code here:
+        int id = Integer.parseInt(txtAlumnoId.getText());
+        alumnoData.activarAlumno(id);
+        lblAlumnoEstado.setText("Activo");
+    }//GEN-LAST:event_btnAlumnoActivarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAlumnoActivar;
     private javax.swing.JButton btnAlumnoActualizar;
     private javax.swing.JButton btnAlumnoBorrar;
+    private javax.swing.JButton btnAlumnoBuscarDni;
     private javax.swing.JButton btnAlumnoBuscarId;
     private javax.swing.JButton btnAlumnoGuardar;
     private javax.swing.JButton btnAlumnoLimpiar;

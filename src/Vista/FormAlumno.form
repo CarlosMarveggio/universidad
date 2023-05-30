@@ -70,23 +70,26 @@
                                       <Component id="lblAlumnoEstado" min="-2" max="-2" attributes="0"/>
                                       <Component id="txtAlumnoFecha" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="btnAlumnoActivar" alignment="1" min="-2" pref="95" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                              <Component id="btnAlumnoBuscarId" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="btnAlumnoBuscarId" max="32767" attributes="0"/>
+                                  <Component id="btnAlumnoBuscarDni" max="32767" attributes="0"/>
+                                  <Component id="btnAlumnoActualizar" alignment="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnAlumnoGuardar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                               <Component id="btnAlumnoBorrar" min="-2" pref="83" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                              <Component id="btnAlumnoActualizar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
                               <Component id="btnAlumnoLimpiar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -105,16 +108,18 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAlumnoDni" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlumnoDni" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAlumnoBuscarDni" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAlumnoApellido" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlumnoApellido" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="lblAlumnoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtAlumnoNombre" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAlumnoActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -130,10 +135,10 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAlumnoGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAlumnoBorrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAlumnoActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAlumnoLimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnAlumnoActivar" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="24" max="32767" attributes="0"/>
+              <EmptySpace pref="15" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -292,6 +297,28 @@
         </Property>
         <Property name="text" type="java.lang.String" value="                       "/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAlumnoBuscarDni">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Buscar por DNI"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlumnoBuscarDniActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnAlumnoActivar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Dialog" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Activar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAlumnoActivarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
