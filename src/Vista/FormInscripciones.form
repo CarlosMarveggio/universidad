@@ -189,6 +189,9 @@
         <Property name="text" type="java.lang.String" value="Inscribir"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInscribirActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnAnularInsc">
       <Properties>
@@ -198,6 +201,9 @@
         <Property name="text" type="java.lang.String" value="Anular Inscripci&#xf3;n"/>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnularInscActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnInscSalir">
       <Properties>
@@ -206,6 +212,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Salir"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInscSalirActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

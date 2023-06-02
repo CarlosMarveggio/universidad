@@ -206,12 +206,13 @@ public class InscripcionData {
 
     }
 
-    public void eliminarInscripcion(int id) {
+    public void eliminarInscripcion(int idAlumno, int idMateria) {
 
         try {
-            String sql = "DELETE FROM inscripcion WHERE idInscripcion = ?";
+            String sql = "DELETE FROM inscripcion WHERE idAlumno = ? and idMateria = ?";
             PreparedStatement ps = con.prepareStatement(sql);
-            ps.setInt(1, id);
+            ps.setInt(1, idAlumno);
+            ps.setInt(2, idMateria);
             int fila = ps.executeUpdate();
             ps.close();
             if (fila == 1) {

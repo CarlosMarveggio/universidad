@@ -65,6 +65,11 @@ public class MPrincipal extends javax.swing.JFrame {
         mnuArchivo.setText("Archivo");
 
         mnuSalir.setText("Salir");
+        mnuSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuSalirActionPerformed(evt);
+            }
+        });
         mnuArchivo.add(mnuSalir);
 
         jMenuBar1.add(mnuArchivo);
@@ -179,6 +184,11 @@ public class MPrincipal extends javax.swing.JFrame {
         mnuEscritorio.add(formInsc);
         mnuEscritorio.moveToFront(formInsc);
     }//GEN-LAST:event_mnuFormInscripcionesActionPerformed
+
+    private void mnuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuSalirActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_mnuSalirActionPerformed
 
     /**
      * @param args the command line arguments

@@ -3,9 +3,11 @@ package Vista;
 import Controlador.AlumnoData;
 import Controlador.InscripcionData;
 import Modelo.Alumno;
+import Modelo.Inscripcion;
 import Modelo.Materia;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -89,13 +91,28 @@ public class FormInscripciones extends javax.swing.JInternalFrame {
         btnInscribir.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnInscribir.setText("Inscribir");
         btnInscribir.setEnabled(false);
+        btnInscribir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInscribirActionPerformed(evt);
+            }
+        });
 
         btnAnularInsc.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnAnularInsc.setText("Anular Inscripción");
         btnAnularInsc.setEnabled(false);
+        btnAnularInsc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAnularInscActionPerformed(evt);
+            }
+        });
 
         btnInscSalir.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         btnInscSalir.setText("Salir");
+        btnInscSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInscSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -165,6 +182,7 @@ public class FormInscripciones extends javax.swing.JInternalFrame {
         rdbtnMateriasInsc.setSelected(false);
         btnAnularInsc.setEnabled(false);
         btnInscribir.setEnabled(true);
+        borrarFilas();
         llenarTabla();
     }//GEN-LAST:event_rdbtnMateriasNoInscActionPerformed
 
@@ -172,9 +190,52 @@ public class FormInscripciones extends javax.swing.JInternalFrame {
         rdbtnMateriasNoInsc.setSelected(false);
         btnAnularInsc.setEnabled(true);
         btnInscribir.setEnabled(false);
+        borrarFilas();
         llenarTabla();
     }//GEN-LAST:event_rdbtnMateriasInscActionPerformed
 
+    private void btnInscribirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscribirActionPerformed
+        Alumno alumnoSeleccionado = (Alumno) cmbInscAlumnos.getSelectedItem();
+        int filaSelecionada = tbInscripciones.getSelectedRow();
+        if(filaSelecionada!=-1){
+            int idMateria = (Integer)modelo.getValueAt(filaSelecionada,0);
+            Materia materia = new Materia();
+            materia.setIdMateria(idMateria);
+            Inscripcion insc = new Inscripcion(alumnoSeleccionado, materia, 0);
+            inscData.guardarInscripcion(insc);
+            borrarFilas();
+            llenarTabla();
+        }else{
+            JOptionPane.showMessageDialog(this, "Seleccione una materia.");
+        }
+    }//GEN-LAST:event_btnInscribirActionPerformed
+
+    private void btnAnularInscActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnularInscActionPerformed
+        Alumno alumnoSeleccionado = (Alumno) cmbInscAlumnos.getSelectedItem();
+        int filaSelecionada = tbInscripciones.getSelectedRow();
+        if(filaSelecionada!=-1){
+            int idMateria = (Integer)modelo.getValueAt(filaSelecionada,0);
+            inscData.eliminarInscripcion(alumnoSeleccionado.getIdAlumno(), idMateria);
+            borrarFilas();
+            llenarTabla();
+        }else{
+            JOptionPane.showMessageDialog(this, "Seleccione una materia.");
+        }
+    }//GEN-LAST:event_btnAnularInscActionPerformed
+
+    private void btnInscSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInscSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnInscSalirActionPerformed
+
+    private void borrarFilas(){
+        int filas = modelo.getRowCount()-1;
+        for (int i = filas; i >= 0; i--) {
+            modelo.removeRow(i);
+        }
+    }
+
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnularInsc;
     private javax.swing.JButton btnInscSalir;
