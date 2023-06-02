@@ -57,7 +57,7 @@ public class Universidad {
          */
 
         /**/
-        //Materia materia = new Materia("Futurologia", 3, true);
+        Materia materia = new Materia("Matematicas", 1, true);
         //MateriaData md = new MateriaData();
         // Agregar materia
 /*        md.guardarMateria(materia);
@@ -86,7 +86,7 @@ public class Universidad {
         Materia materia = new Materia(2,"WEB 1", 1, true);
         Alumno alumno = new Alumno(5, 38497593, "Arjona", "Ricardios", LocalDate.parse("1888-05-06"), true);
         Inscripcion inscripcion = new Inscripcion(alumno, materia, 0);
-        InscripcionData idt = new InscripcionData();
+        /*InscripcionData idt = new InscripcionData();
         // Agregar inscripcion
         idt.guardarInscripcion(inscripcion);
         // Buscar inscripcion unica
@@ -101,12 +101,12 @@ public class Universidad {
         for (Inscripcion insc : inscripcionesM) {
             System.out.println(insc);
         }
-        // Modificar inscripcion
+        Modificar inscripcion
         Inscripcion inscripcionModif = new Inscripcion(7, alumno, materia, 9);
         idt.modificarInscripcion(inscripcionModif);
         // Eliminar inscripcion
         idt.eliminarInscripcion(7);
-         */
+        
         // Buscar materias no inscriptas
         // Alumno alumno = new Alumno(5, 38497593, "Arjona", "Ricardios", LocalDate.parse("1888-05-06"), true);
 /*        InscripcionData idt = new InscripcionData();
@@ -121,6 +121,9 @@ public class Universidad {
         /*for (Inscripcion ins : inscripciones) {
             System.out.println(ins);
         }*/
+        InscripcionData id = new InscripcionData();
+        id.modificarInscripcion(1, 1, 4);
+        
     }
-
+    
 }

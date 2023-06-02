@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 public class InscripcionData {
 
     private Connection con = null;
+    private AlumnoData alumnoData = new AlumnoData();
 
     public InscripcionData() {
 
@@ -71,7 +72,7 @@ public class InscripcionData {
         return inscripcion;
     }
 
-    public List<Materia> buscarInscripcionesAlumno(int idAlumno) {
+    public List<Materia> buscarCuarsadasAlumno(int idAlumno) {
 
         List<Materia> inscripcionesAlumno = new ArrayList<>();
 
@@ -98,6 +99,31 @@ public class InscripcionData {
         return inscripcionesAlumno;
     }
 
+    public List<Inscripcion> buscarInscripcionesAlumno(int idAlumno) {
+
+        List<Inscripcion> inscripcionesAlumno = new ArrayList<>();
+
+        //String sql = "SELECT idInscripcion, nota FROM alumno AS A, materia AS M, inscripcion AS I WHERE A.idAlumno=I.idAlumno AND M.idMateria=I.idMateria AND A.idAlumno=? AND M.idMateria=? AND A.estado=1 AND M.estado=1";
+        try {
+            String sql = "SELECT * FROM alumno AS A, materia AS M, inscripcion AS I WHERE A.idAlumno=I.idAlumno AND M.idMateria=I.idMateria AND A.idAlumno=? AND A.estado=1 AND M.estado=1";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, idAlumno);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Materia materia = new Materia(rs.getInt("M.idMateria"),rs.getString("M.nombre"), rs.getInt("año"), rs.getBoolean("M.estado"));
+                Alumno alumno = alumnoData.buscarAlumno(idAlumno);
+                Inscripcion insc = new Inscripcion(rs.getInt("idInscripcion"), alumno, materia, rs.getFloat("nota"));
+                inscripcionesAlumno.add(insc);
+            }
+            ps.close();
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla inscripcion" + ex.getMessage());
+        }
+        return inscripcionesAlumno;
+    }    
+    
     public List<Materia> buscarInscripcionNoCursadas(int idAlumno) {
 
         List<Materia> noInscriptas = new ArrayList<>();
@@ -183,15 +209,16 @@ public class InscripcionData {
         return inscripciones;
     }
 
-    public void modificarInscripcion(Inscripcion inscripcion) {
+    public void modificarInscripcion(int idAlumno, int idMateria, float nota) {
 
-        String sql = "UPDATE inscripcion SET nota=? WHERE idInscripcion=? ";
+        String sql = "UPDATE inscripcion SET nota=? WHERE idAlumno=? AND idMateria=? ";
         PreparedStatement ps = null;
 
         try {
             ps = con.prepareStatement(sql);
-            ps.setFloat(1, inscripcion.getNota());
-            ps.setInt(2, inscripcion.getIdInscripcion());
+            ps.setFloat(1, nota);
+            ps.setInt(2, idAlumno);
+            ps.setInt(3, idMateria);
             int exito = ps.executeUpdate();
 
             if (exito == 1) {

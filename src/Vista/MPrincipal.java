@@ -113,6 +113,11 @@ public class MPrincipal extends javax.swing.JFrame {
         mnuNotas.setText("Carga de notas");
 
         mnuFormNotas.setText("Manipulacion de notas");
+        mnuFormNotas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuFormNotasActionPerformed(evt);
+            }
+        });
         mnuNotas.add(mnuFormNotas);
 
         jMenuBar1.add(mnuNotas);
@@ -135,11 +140,11 @@ public class MPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mnuEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mnuEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mnuEscritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(mnuEscritorio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -189,6 +194,16 @@ public class MPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_mnuSalirActionPerformed
+
+    private void mnuFormNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFormNotasActionPerformed
+        // TODO add your handling code here:
+        mnuEscritorio.removeAll();
+        mnuEscritorio.repaint();
+        FormNotas formNotas = new FormNotas();
+        formNotas.setVisible(true);
+        mnuEscritorio.add(formNotas);
+        mnuEscritorio.moveToFront(formNotas);
+    }//GEN-LAST:event_mnuFormNotasActionPerformed
 
     /**
      * @param args the command line arguments

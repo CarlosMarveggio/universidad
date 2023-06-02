@@ -276,7 +276,7 @@ public class FormInscripciones extends javax.swing.JInternalFrame {
                 modelo.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAnio()});
             }
         }else{
-            List<Materia> materias = inscData.buscarInscripcionesAlumno(almSelecionado.getIdAlumno());
+            List<Materia> materias = inscData.buscarCuarsadasAlumno(almSelecionado.getIdAlumno());
             for (Materia mat : materias) {
                 modelo.addRow(new Object[]{mat.getIdMateria(), mat.getNombre(), mat.getAnio()});
             }
