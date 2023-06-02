@@ -96,6 +96,11 @@ public class MPrincipal extends javax.swing.JFrame {
         mnuInscripciones.setText("Inscripciones");
 
         mnuFormInscripciones.setText("Manejo de inscripciones");
+        mnuFormInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuFormInscripcionesActionPerformed(evt);
+            }
+        });
         mnuInscripciones.add(mnuFormInscripciones);
 
         jMenuBar1.add(mnuInscripciones);
@@ -164,6 +169,16 @@ public class MPrincipal extends javax.swing.JFrame {
         mnuEscritorio.add(alumM);
         mnuEscritorio.moveToFront(alumM);
     }//GEN-LAST:event_mnuFormConsultaActionPerformed
+
+    private void mnuFormInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuFormInscripcionesActionPerformed
+        // TODO add your handling code here:
+        mnuEscritorio.removeAll();
+        mnuEscritorio.repaint();
+        FormInscripciones formInsc = new FormInscripciones();
+        formInsc.setVisible(true);
+        mnuEscritorio.add(formInsc);
+        mnuEscritorio.moveToFront(formInsc);
+    }//GEN-LAST:event_mnuFormInscripcionesActionPerformed
 
     /**
      * @param args the command line arguments
